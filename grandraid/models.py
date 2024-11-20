@@ -43,6 +43,7 @@ class RunnerCategory(models.Model):
 class Meal(models.Model):
     type = models.CharField()
     prix = models.IntegerField()
+    name = models.CharField()
     created = models.DateTimeField(auto_now_add=True)
 
     class Meta:

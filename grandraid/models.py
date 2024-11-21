@@ -61,7 +61,6 @@ class Runner(models.Model):
         default=Sexe.FEMME,
     )
     birth_date = models.DateField()
-    category = models.TextField()
     shirt_size = models.ForeignKey(Size, on_delete=models.CASCADE)
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     meal_before = models.BooleanField(default=False)

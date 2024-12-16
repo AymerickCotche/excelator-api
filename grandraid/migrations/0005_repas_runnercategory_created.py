@@ -17,7 +17,6 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('type', models.TextField()),
                 ('prix', models.IntegerField()),
-                ('name', models.CharField()),
                 ('created', models.DateTimeField(auto_now_add=True)),
             ],
             options={

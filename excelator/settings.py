@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-az*@5v)p@18t2819v(qvn8*b-9_ed-22690t&%xmuu)y)zt2em
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.vercel.app', '127.0.0.1']
 
 
 # Application definition
@@ -72,6 +72,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://192.168.1.76:3000",
     "https://webapp-lotoquine-7p5muuvuz-aymerickcotches-projects.vercel.app",
     "https://webapp-lotoquine.vercel.app",
+    '.vercel.app'
 ]
 
 ROOT_URLCONF = 'excelator.urls'
@@ -92,7 +93,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'excelator.wsgi.application'
+WSGI_APPLICATION = 'excelator.wsgi.app'
 
 
 # Database

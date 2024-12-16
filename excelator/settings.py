@@ -43,8 +43,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',
+    'knox',
     'grandraid',
-    'lesbases'
+    'lesbases',
+    'referenceabsolue',
+    'eleves',
+    'facturation',
+    'customauth'
 ]
 
 MIDDLEWARE = [
@@ -57,6 +62,10 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',),
+}
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",

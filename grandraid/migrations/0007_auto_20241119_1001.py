@@ -3,8 +3,8 @@
 from django.db import migrations
 
 meals= [
-    {"type": "before", "prix": 8},
-    {"type": "after", "prix": 10},
+    {"type": "before", "prix": 8, "name": "Repas avant"},
+    {"type": "after", "prix": 10, "name" : "Repas aprés"},
 
 ]
 

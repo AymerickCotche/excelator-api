@@ -18,7 +18,12 @@ from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
+    path(r'api/auth/', include('knox.urls')),
+    path(r'api/customauth/', include('customauth.urls')),
     path('admin/', admin.site.urls),
     path("api/grandraid/", include("grandraid.urls")),
     path("api/lesbases/", include("lesbases.urls")),
+    path("api/referenceabsolue/", include("referenceabsolue.urls")),
+    path("api/eleves/", include("eleves.urls")),
+    path("api/facturation/", include("facturation.urls")),
 ]

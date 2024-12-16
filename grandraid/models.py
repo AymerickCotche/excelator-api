@@ -52,16 +52,18 @@ class Meal(models.Model):
 class Runner(models.Model):
     firstname = models.TextField(max_length=20)
     lastname = models.TextField(max_length=20)
+    
     class Sexe(models.TextChoices):
         HOMME = "H", _("Homme")
         FEMME = "F", _("Femme")
+    
     sexe = models.CharField(
         max_length=1,
-        choices=Sexe,
+        choices=Sexe.choices,
         default=Sexe.FEMME,
     )
     birth_date = models.DateField()
-    shirt_size = models.ForeignKey(Size, on_delete=models.CASCADE)
-    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    shirt_size = models.ForeignKey('Size', on_delete=models.CASCADE)
+    course = models.ForeignKey('Course', on_delete=models.CASCADE)
     meal_before = models.BooleanField(default=False)
     meal_after = models.BooleanField(default=False)

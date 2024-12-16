@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 import os
 from pathlib import Path
 from dotenv import load_dotenv
+import dj_database_url
 
 load_dotenv()
 
@@ -72,7 +73,6 @@ CORS_ALLOWED_ORIGINS = [
     "http://192.168.1.76:3000",
     "https://webapp-lotoquine-7p5muuvuz-aymerickcotches-projects.vercel.app",
     "https://webapp-lotoquine.vercel.app",
-    '.vercel.app'
 ]
 
 ROOT_URLCONF = 'excelator.urls'
@@ -99,15 +99,13 @@ WSGI_APPLICATION = 'excelator.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# Replace the SQLite DATABASES configuration with PostgreSQL:
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.getenv("PG_NAME"),
-        "USER": os.getenv("PG_USER"),
-        "PASSWORD": os.getenv("PG_PASSWORD"),
-        "HOST": os.getenv("PG_HOST"),
-        "PORT": os.getenv("PG_PORT"),
-    }
+    'default': dj_database_url.config(
+        # Replace this value with your local database's connection string.
+        default=os.getenv("POSTGRES_URL"),
+        conn_max_age=600
+    )
 }
 
 
@@ -145,9 +143,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "ui/static")]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 STATIC_URL = "static/"
-STATIC_ROOT = os.path.join(BASE_DIR, "ui/staticfiles")
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
